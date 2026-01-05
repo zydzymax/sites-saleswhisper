@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ИИ-продавец для бизнеса | Sales Whisper - Автоматизация продаж с ИИ</title>
+    <meta name="description" content="Sales Whisper — ИИ-продавец, который отвечает за секунды 24/7, задаёт правильные вопросы и передаёт тёплых клиентов в CRM. Автоматизация продаж для малого и среднего бизнеса.">
+    <meta name="keywords" content="ИИ продавец, AI продавец, чат-бот для продаж, автоматизация продаж, бот для бизнеса, искусственный интеллект продажи, лидогенерация, обработка заявок, Sales Whisper">
+    <meta name="author" content="Sales Whisper">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <link rel="canonical" href="https://saleswhisper.pro/">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://saleswhisper.pro/">
+    <meta property="og:title" content="ИИ-продавец для бизнеса | Sales Whisper">
+    <meta property="og:description" content="ИИ-продавец, который отвечает за секунды 24/7, задаёт правильные вопросы и передаёт тёплых клиентов в CRM.">
+    <meta property="og:image" content="https://saleswhisper.pro/assets/img/og-image.png">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:site_name" content="Sales Whisper">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://saleswhisper.pro/">
+    <meta name="twitter:title" content="ИИ-продавец для бизнеса | Sales Whisper">
+    <meta name="twitter:description" content="ИИ-продавец, который отвечает за секунды 24/7, задаёт правильные вопросы и передаёт тёплых клиентов в CRM.">
+    <meta name="twitter:image" content="https://saleswhisper.pro/assets/img/og-image.png">
+
+    <!-- Yandex verification -->
+    <meta name="yandex-verification" content="9ffa63dc398f1b6a">
+
+    <!-- Google verification -->
+    <meta name="google-site-verification" content="google65823c8bde01cec5.html">
+
+    <!-- Schema.org structured data for AI and search engines -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Sales Whisper",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web",
+        "description": "ИИ-продавец для автоматизации продаж. Отвечает клиентам за секунды 24/7, квалифицирует лиды и передаёт тёплых клиентов в CRM или Telegram.",
+        "url": "https://saleswhisper.pro",
+        "author": {
+            "@type": "Person",
+            "name": "Гладких Виталий"
+        },
+        "offers": {
+            "@type": "Offer",
+            "price": "15000",
+            "priceCurrency": "RUB",
+            "priceValidUntil": "2025-12-31"
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.9",
+            "ratingCount": "47"
+        }
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Sales Whisper",
+        "url": "https://saleswhisper.pro",
+        "logo": "https://saleswhisper.pro/assets/img/logo.png",
+        "description": "Автоматизация продаж с помощью ИИ. Чат-боты для бизнеса.",
+        "founder": {
+            "@type": "Person",
+            "name": "Гладких Виталий"
+        },
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "contactType": "sales",
+            "availableLanguage": "Russian"
+        },
+        "sameAs": [
+            "https://t.me/saleswhisper"
+        ]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Не наговорит ли бот лишнего?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Нет. Бот работает строго по сценарию, который мы согласуем с вами. Он не импровизирует и не выдумывает информацию."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Сколько стоит внедрение?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Базовый тариф — от 15 000 рублей в месяц. Точная стоимость зависит от количества каналов и сложности сценария."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Как быстро можно запустить бота?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Запуск базового бота занимает 3-5 рабочих дней. Сложные интеграции с CRM — до 2 недель."
+                }
+            }
+        ]
+    }
+    </script>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#0f0f12">
+    <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/apple-touch-icon.png">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+
+    <!-- ========================================
+         HEADER
+         ======================================== -->
+    <header class="header">
+        <div class="container">
+            <div class="header__inner">
+                <a href="/" class="header__logo">Sales <span>Whisper</span></a>
+
+                <nav class="header__nav">
+                    <ul>
+                        <li><a href="#features">Возможности</a></li>
+                        <li><a href="#pricing">Тарифы</a></li>
+                        <li><a href="#cases">Кейсы</a></li>
+                        <li><a href="blog/">Блог</a></li>
+                        <li><a href="#contact">Заявка</a></li>
+                    </ul>
+                </nav>
+
+                <button class="menu-toggle" aria-label="Меню">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <nav class="mobile-menu">
+            <ul>
+                <li><a href="#features">Возможности</a></li>
+                <li><a href="#pricing">Тарифы</a></li>
+                <li><a href="#cases">Кейсы</a></li>
+                <li><a href="blog/">Блог</a></li>
+                <li><a href="#contact">Заявка</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- ========================================
+             HERO SECTION
+             ======================================== -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero__content">
+                    <span class="hero__badge">ИИ-автоматизация продаж</span>
+                    <h1>ИИ-продавец, который не даёт заявкам пропадать</h1>
+                    <p class="hero__subtitle">
+                        Бот отвечает за секунды, задаёт правильные вопросы и передаёт тёплых клиентов вам в CRM или Telegram. Без выходных и перерывов.
+                    </p>
+                    <div class="btn-group" style="justify-content: center;">
+                        <!-- TODO: Заменить # на реальную ссылку на демо-бота в Telegram -->
+                        <a href="#" class="btn btn--primary btn--large">Запустить демо-бота в Telegram</a>
+                        <a href="#contact" class="btn btn--secondary btn--large">Получить разбор вашей воронки</a>
+                    </div>
+                    <p class="hero__note">Без спама и обязаловки. Просто посмотрите, как это работает.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================
+             PROBLEMS SECTION - "Где вы теряете деньги"
+             ======================================== -->
+        <section class="problems" id="problems">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Где вы теряете деньги</h2>
+                    <p>Каждый день бизнес упускает клиентов из-за простых, но критичных ошибок в коммуникации</p>
+                </div>
+
+                <div class="problems__grid">
+                    <div class="problem-card">
+                        <div class="problem-card__icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h4 class="problem-card__title">Долгие ответы</h4>
+                            <p class="problem-card__text">Клиент написал в 22:00, а менеджер ответил в 10:00. К этому моменту он уже купил у конкурента.</p>
+                        </div>
+                    </div>
+
+                    <div class="problem-card">
+                        <div class="problem-card__icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h4 class="problem-card__title">Потерянные диалоги</h4>
+                            <p class="problem-card__text">Заявки теряются в разных чатах, мессенджерах и почте. Никто не помнит, кому что обещали.</p>
+                        </div>
+                    </div>
+
+                    <div class="problem-card">
+                        <div class="problem-card__icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h4 class="problem-card__title">Бардак с заявками</h4>
+                            <p class="problem-card__text">Instagram, WhatsApp, Telegram, сайт — заявки приходят отовсюду, а единой системы нет.</p>
+                        </div>
+                    </div>
+
+                    <div class="problem-card">
+                        <div class="problem-card__icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h4 class="problem-card__title">Владелец сам в переписках</h4>
+                            <p class="problem-card__text">Вместо стратегии и развития бизнеса — бесконечные ответы на однотипные вопросы.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="problems__calc">
+                    <p class="problems__calc-title">Пример расчёта потерь:</p>
+                    <p class="problems__calc-example">
+                        При 5 заявках в день и среднем чеке 50 000 ₽, потеря 20% заявок из-за медленных ответов — это:
+                    </p>
+                    <p class="problems__calc-result">1 500 000 ₽ в месяц</p>
+                    <a href="tools/lost-leads-calculator.html" class="btn btn--secondary btn--small" style="margin-top: 16px;">Посчитать свои потери</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================
+             FEATURES SECTION - "Что делает Sales Whisper"
+             ======================================== -->
+        <section class="features" id="features">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Что делает Sales Whisper</h2>
+                    <p>Автоматизируем первичную коммуникацию, чтобы вы фокусировались на закрытии сделок</p>
+                </div>
+
+                <div class="features__grid">
+                    <div class="card">
+                        <div class="card__icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                            </svg>
+                        </div>
+                        <h3 class="card__title">Отвечает за секунды</h3>
+                        <p class="card__text">Мгновенный ответ в любое время суток. Клиент получает внимание, пока горячий.</p>
+                    </div>
+
+                    <div class="card">
+                        <div class="card__icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                        </div>
+                        <h3 class="card__title">Задаёт правильные вопросы</h3>
+                        <p class="card__text">Квалифицирует лида по вашему сценарию: бюджет, сроки, потребности.</p>
+                    </div>
+
+                    <div class="card">
+                        <div class="card__icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z" />
+                            </svg>
+                        </div>
+                        <h3 class="card__title">Фильтрует заявки</h3>
+                        <p class="card__text">Отсеивает нецелевых, структурирует данные. Вы работаете только с качественными лидами.</p>
+                    </div>
+
+                    <div class="card">
+                        <div class="card__icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+                            </svg>
+                        </div>
+                        <h3 class="card__title">Передаёт тёплых лидов</h3>
+                        <p class="card__text">Готовые заявки уходят в Telegram, CRM или Google-таблицу — как вам удобнее.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================
+             PRICING SECTION
+             ======================================== -->
+        <section class="pricing" id="pricing">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Тарифы</h2>
+                    <p>Выберите подходящий вариант под ваши задачи</p>
+                </div>
+
+                <div class="pricing__grid">
+                    <!-- Старт -->
+                    <div class="pricing-card">
+                        <h3 class="pricing-card__name">Старт</h3>
+                        <div class="pricing-card__price">25 000 ₽</div>
+                        <ul class="pricing-card__features">
+                            <li>Бот в Telegram</li>
+                            <li>Базовый сценарий (до ~15 шагов)</li>
+                            <li>Вывод лидов в Google Sheet или Notion</li>
+                            <li>7 дней поддержки после запуска</li>
+                        </ul>
+                        <a href="#contact" class="btn btn--secondary">Выбрать</a>
+                    </div>
+
+                    <!-- Стандарт -->
+                    <div class="pricing-card pricing-card--featured">
+                        <span class="pricing-card__badge">Популярный</span>
+                        <h3 class="pricing-card__name">Стандарт</h3>
+                        <div class="pricing-card__price">45–60 000 ₽</div>
+                        <ul class="pricing-card__features">
+                            <li>Всё из тарифа «Старт»</li>
+                            <li>Аудит точек входа и воронки</li>
+                            <li>Интеграция с CRM (amoCRM, Битрикс24 или другая)</li>
+                            <li>30 дней сопровождения</li>
+                        </ul>
+                        <a href="#contact" class="btn btn--primary">Выбрать</a>
+                    </div>
+
+                    <!-- Про -->
+                    <div class="pricing-card">
+                        <h3 class="pricing-card__name">Про</h3>
+                        <div class="pricing-card__price">от 90 000 ₽</div>
+                        <ul class="pricing-card__features">
+                            <li>Несколько сценариев под разные продукты</li>
+                            <li>Отчёты и аналитика</li>
+                            <li>Работа с РОПом и отделом продаж</li>
+                            <li>A/B-тесты сценариев</li>
+                        </ul>
+                        <a href="#contact" class="btn btn--secondary">Выбрать</a>
+                    </div>
+                </div>
+
+                <p class="pricing__note">
+                    * Стоимость API (OpenAI/Claude) и серверов можно оплачивать отдельно или включить в тариф — обсудим на консультации.
+                </p>
+            </div>
+        </section>
+
+        <!-- ========================================
+             PROCESS SECTION - "Как мы работаем"
+             ======================================== -->
+        <section class="process">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Как мы работаем</h2>
+                    <p>От заявки до работающего бота — 4 простых шага</p>
+                </div>
+
+                <div class="process__steps">
+                    <div class="step">
+                        <div class="step__number">1</div>
+                        <h4 class="step__title">Заявка</h4>
+                        <p class="step__text">Вы оставляете заявку, и мы созваниваемся на 15-20 минут, чтобы понять вашу ситуацию.</p>
+                    </div>
+
+                    <div class="step">
+                        <div class="step__number">2</div>
+                        <h4 class="step__title">Мини-аудит</h4>
+                        <p class="step__text">Анализируем вашу воронку, точки входа и типичные диалоги. Предлагаем сценарий.</p>
+                    </div>
+
+                    <div class="step">
+                        <div class="step__number">3</div>
+                        <h4 class="step__title">Настройка и запуск</h4>
+                        <p class="step__text">Создаём бота, настраиваем сценарии, интегрируем с вашими системами. Запускаем.</p>
+                    </div>
+
+                    <div class="step">
+                        <div class="step__number">4</div>
+                        <h4 class="step__title">Докрутка и поддержка</h4>
+                        <p class="step__text">Собираем обратную связь, улучшаем сценарии, добавляем новые ветки диалогов.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================
+             AUDIENCE SECTION - "Кому подходит"
+             ======================================== -->
+        <section class="audience" id="audience">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Кому подходит</h2>
+                    <p>ИИ-продавец работает в разных нишах, где есть поток входящих заявок</p>
+                </div>
+
+                <div class="audience__list">
+                    <div class="audience__item">B2B-услуги и производства</div>
+                    <div class="audience__item">Эксперты и онлайн-школы</div>
+                    <div class="audience__item">Агентства (маркетинг, дизайн, разработка)</div>
+                    <div class="audience__item">Строительные компании и ремонт</div>
+                    <div class="audience__item">Медицинские клиники и салоны красоты</div>
+                    <div class="audience__item">Интернет-магазины с консультациями</div>
+                    <div class="audience__item">Туризм и event-агентства</div>
+                    <div class="audience__item">Недвижимость и автобизнес</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================
+             CASES SECTION
+             ======================================== -->
+        <section class="cases" id="cases">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Кейсы</h2>
+                    <p>Реальные результаты внедрения ИИ-продавца</p>
+                </div>
+
+                <div class="cases__grid">
+                    <!-- Кейс 1 -->
+                    <div class="case-card">
+                        <div class="case-card__header">
+                            <p class="case-card__industry">Строительная компания</p>
+                            <h3 class="case-card__title">Производство металлоконструкций</h3>
+                        </div>
+                        <div class="case-card__body">
+                            <div class="case-card__problem">
+                                <p class="case-card__label">Проблема</p>
+                                <p>Менеджеры не справлялись с потоком заявок, отвечали через 2-3 часа. 40% лидов уходили к конкурентам.</p>
+                            </div>
+                            <div class="case-card__solution">
+                                <p class="case-card__label">Решение</p>
+                                <p>Внедрили ИИ-бота, который мгновенно отвечает, собирает ТЗ и передаёт готовые заявки в amoCRM.</p>
+                            </div>
+                            <div class="case-card__result">
+                                <p class="case-card__label">Результат</p>
+                                <p class="case-card__result-value">+35% конверсия</p>
+                                <p class="case-card__text">Время ответа сократилось до 15 секунд. Менеджеры работают только с квалифицированными лидами.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Кейс 2 -->
+                    <div class="case-card">
+                        <div class="case-card__header">
+                            <p class="case-card__industry">Онлайн-образование</p>
+                            <h3 class="case-card__title">Школа английского языка</h3>
+                        </div>
+                        <div class="case-card__body">
+                            <div class="case-card__problem">
+                                <p class="case-card__label">Проблема</p>
+                                <p>Владелец лично отвечал на все сообщения в Instagram и Telegram. Тратил 3-4 часа в день на однотипные вопросы.</p>
+                            </div>
+                            <div class="case-card__solution">
+                                <p class="case-card__label">Решение</p>
+                                <p>Создали бота, который отвечает на FAQ, определяет уровень и записывает на пробный урок.</p>
+                            </div>
+                            <div class="case-card__result">
+                                <p class="case-card__label">Результат</p>
+                                <p class="case-card__result-value">3 часа/день сэкономлено</p>
+                                <p class="case-card__text">Владелец занимается развитием школы, а бот обрабатывает 90% входящих обращений.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================
+             ABOUT SECTION - "Кто за этим стоит"
+             ======================================== -->
+        <section class="about" id="about">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Кто за этим стоит</h2>
+                </div>
+
+                <div class="about__content">
+                    <div class="about__photo">
+                        <!-- TODO: Заменить на реальное фото -->
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                        </svg>
+                    </div>
+                    <div class="about__info">
+                        <h3 class="about__name">Гладких Виталий</h3>
+                        <p class="about__role">Основатель Sales Whisper</p>
+                        <p class="about__text">
+                            Более 7 лет в B2B-продажах и строительном бизнесе. Знаю, как теряются заявки и сколько это стоит — сам через это прошёл.
+                        </p>
+                        <p class="about__text">
+                            Сейчас помогаю предпринимателям внедрять ИИ-продавцов: автоматизировать первичную коммуникацию, квалифицировать лидов и освобождать время для важных задач.
+                        </p>
+                        <p class="about__text">
+                            <!-- TODO: Заменить # на реальную ссылку на ваш Telegram -->
+                            Напишите мне в <a href="#">Telegram</a> — отвечу лично.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================
+             FAQ SECTION
+             ======================================== -->
+        <section class="faq" id="faq">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Частые вопросы</h2>
+                </div>
+
+                <div class="faq__list">
+                    <div class="faq-item">
+                        <button class="faq-item__question">
+                            Не наговорит ли бот лишнего?
+                            <span class="faq-item__icon"></span>
+                        </button>
+                        <div class="faq-item__answer">
+                            <div class="faq-item__answer-inner">
+                                <p>Нет. Бот работает строго по сценарию, который мы согласуем с вами. Он не импровизирует и не выдумывает информацию. Все ответы — заранее прописанные или сгенерированные по вашим данным. Плюс мы настраиваем «предохранители»: если вопрос выходит за рамки компетенции, бот передаёт диалог живому менеджеру.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-item__question">
+                            А если у нас нет CRM?
+                            <span class="faq-item__icon"></span>
+                        </button>
+                        <div class="faq-item__answer">
+                            <div class="faq-item__answer-inner">
+                                <p>Не проблема. Бот может отправлять заявки в Google Таблицы, Notion, личный Telegram или email. Это удобно для старта. Когда будете готовы к CRM — добавим интеграцию.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-item__question">
+                            Сколько стоит содержание ИИ-бота ежемесячно?
+                            <span class="faq-item__icon"></span>
+                        </button>
+                        <div class="faq-item__answer">
+                            <div class="faq-item__answer-inner">
+                                <p>Основные расходы — это API языковой модели (OpenAI или Claude) и хостинг. При среднем объёме в 500-1000 диалогов в месяц это порядка 2000-5000 ₽. Точнее скажу после анализа вашего трафика. Сервер — от 500 ₽/мес.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-item__question">
+                            Как быстро можно запустить бота?
+                            <span class="faq-item__icon"></span>
+                        </button>
+                        <div class="faq-item__answer">
+                            <div class="faq-item__answer-inner">
+                                <p>Базовый бот в Telegram с простым сценарием — 3-5 рабочих дней. Более сложные проекты с интеграциями в CRM и несколькими сценариями — 1-2 недели. Сроки зависят от вашей скорости согласования и предоставления материалов.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-item__question">
+                            Можно ли подключить бота к нескольким каналам?
+                            <span class="faq-item__icon"></span>
+                        </button>
+                        <div class="faq-item__answer">
+                            <div class="faq-item__answer-inner">
+                                <p>Да. Один бот может работать в Telegram, на сайте (виджет), в WhatsApp и Instagram Direct. Все диалоги собираются в единую базу. Это обсуждаем на этапе планирования.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================
+             CONTACT FORM SECTION
+             ======================================== -->
+        <section class="contact" id="contact">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Получить 2–3 идеи по внедрению</h2>
+                    <p>Оставьте заявку, и я лично посмотрю вашу воронку и предложу варианты автоматизации</p>
+                </div>
+
+                <div class="contact__form">
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Имя</label>
+                            <input type="text" id="name" name="name" placeholder="Как вас зовут?" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="contact">Telegram или WhatsApp</label>
+                            <input type="text" id="contact" name="contact" placeholder="@username или +7..." required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="website">Ссылка на сайт или аккаунт</label>
+                            <input type="text" id="website" name="website" placeholder="https://...">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="comment">Комментарий</label>
+                            <textarea id="comment" name="comment" placeholder="Расскажите коротко о вашем бизнесе и задаче..."></textarea>
+                        </div>
+
+                        <div class="form-group form-group--checkbox">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="consent" name="consent" required>
+                                <span>Я даю согласие на <a href="/legal/consent.html" target="_blank">обработку персональных данных</a> и ознакомлен с <a href="/legal/privacy-policy.html" target="_blank">Политикой конфиденциальности</a></span>
+                            </label>
+                        </div>
+
+                        <div class="form-group form-group--checkbox">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="marketing" name="marketing">
+                                <span>Согласен получать полезные материалы и новости (необязательно)</span>
+                            </label>
+                        </div>
+
+                        <button type="submit" class="btn btn--primary btn--large">Получить 2–3 идеи по внедрению</button>
+                    </form>
+
+                    <!-- Success Message -->
+                    <div class="form-success">
+                        <div class="form-success__icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                        </div>
+                        <h3>Спасибо за заявку!</h3>
+                        <p>Я свяжусь с вами в течение 24 часов, чтобы обсудить ваш проект.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ========================================
+         FOOTER
+         ======================================== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__content">
+                <div class="footer__about">
+                    <div class="footer__logo">Sales <span>Whisper</span></div>
+                    <p class="footer__desc">ИИ-продавец, который не даёт заявкам пропадать. Автоматизация первичной коммуникации для бизнеса.</p>
+                    <p class="footer__desc" style="margin-top:10px;font-size:12px;opacity:0.8;">ИП Гладких Виталий Олегович<br>ИНН: 381705889083 · ОГРНИП: 325774600805724</p>
+                </div>
+                <div class="footer__section">
+                    <h4 class="footer__title">Контакты</h4>
+                    <ul class="footer__links">
+                        <li>📧 <a href="mailto:support@saleswhisper.pro">support@saleswhisper.pro</a></li>
+                        <li>📞 <a href="tel:+79938981301">+7 (993) 898-13-01</a></li>
+                        <li>💬 <a href="https://t.me/saleswhisper" target="_blank">Telegram</a></li>
+                    </ul>
+                </div>
+                <div class="footer__section">
+                    <h4 class="footer__title">Документы</h4>
+                    <ul class="footer__links">
+                        <li><a href="/legal/terms.html">Условия использования (Terms of Service)</a></li>
+                        <li><a href="/legal/offer.html">Публичная оферта</a></li>
+                        <li><a href="/legal/requisites.html">Реквизиты</a></li>
+                        <li><a href="/legal/privacy-policy.html">Политика конфиденциальности</a></li>
+                        <li><a href="/legal/consent.html">Согласие на обработку ПД</a></li>
+                        <li><a href="/legal/cookies.html">Cookie-политика</a></li>
+                        <li><a href="/legal/returns.html">Возвраты и отмена</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p>© 2025 Sales Whisper. Все права защищены.</p>
+                <p style="font-size:11px;opacity:0.7;margin-top:5px;">ИП Гладких В.О. · ИНН 381705889083 · г. Москва</p>
+                <p style="font-size:11px;opacity:0.7;margin-top:3px;">📧 support@saleswhisper.pro · 📞 +7 (993) 898-13-01</p>
+                <p style="font-size:11px;opacity:0.7;margin-top:5px;">г. Москва, ул. Маршала Бирюзова, д. 9</p>
+            </div>
+        </div>
+    </footer>
+        <div class="container">
+            <div class="footer__content">
+                <div class="footer__about">
+                    <div class="footer__logo">Sales <span>Whisper</span></div>
+                    <p class="footer__desc">ИИ-продавец, который не даёт заявкам пропадать. Автоматизация первичной коммуникации для бизнеса.</p>
+                </div>
+
+                <div class="footer__section">
+                    <h4 class="footer__title">Навигация</h4>
+                    <ul class="footer__links">
+                        <li><a href="#features">Возможности</a></li>
+                        <li><a href="#pricing">Тарифы</a></li>
+                        <li><a href="#cases">Кейсы</a></li>
+                        <li><a href="blog/">Блог</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer__section">
+                    <h4 class="footer__title">Инструменты</h4>
+                    <ul class="footer__links">
+                        <li><a href="tools/lost-leads-calculator.html">Калькулятор потерь</a></li>
+                        <li><a href="checklist/">Чек-лист</a></li>
+                        <li><a href="/legal/privacy-policy.html">Политика конфиденциальности</a></li>
+                        <li><a href="/legal/consent.html">Согласие на обработку ПД</a></li>
+                        <li><a href="/legal/cookies.html">Cookie-политика</a></li>
+                        <li><a href="/legal/returns.html">Возвраты и отмена</a></li>
+                        <li><a href="/legal/terms.html">Условия использования (Terms of Service)</a></li>
+                        <li><a href="/legal/offer.html">Публичная оферта</a></li>
+                        <li><a href="/legal/requisites.html">Реквизиты</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer__bottom">
+                <p>© 2025 Sales Whisper. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ========================================
+         CHAT WIDGET
+         Плавающая кнопка чата и панель чата
+         ======================================== -->
+
+    <!-- Chat Button -->
+    <button class="chat-widget-btn" aria-label="Открыть чат">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+        </svg>
+        <span class="chat-widget-btn__tooltip">Поговорить с демо-ботом</span>
+    </button>
+
+    <!-- Chat Panel -->
+    <div class="chat-panel">
+        <div class="chat-panel__header">
+            <div class="chat-panel__title">
+                <span class="chat-panel__status"></span>
+                Sales Whisper Demo
+            </div>
+            <button class="chat-panel__close" aria-label="Закрыть чат">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+        </div>
+        <div class="chat-panel__messages">
+            <!-- Messages will be inserted here by JS -->
+        </div>
+        <div class="chat-panel__input">
+            <input type="text" placeholder="Напишите сообщение..." aria-label="Сообщение">
+            <button aria-label="Отправить">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+                </svg>
+            </button>
+        </div>
+    </div>
+    <!-- END CHAT WIDGET -->
+
+    <!-- Scripts -->
+    <script src="assets/js/cookie-consent.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

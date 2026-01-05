@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sales Whisper - Обработка возражений</title>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'PT Sans', Arial, sans-serif;
+            background: rgba(0,0,0,0.5);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .modal {
+            background: #fff;
+            border-radius: 16px;
+            width: 100%;
+            max-width: 600px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.25);
+            overflow: hidden;
+        }
+        
+        .modal-header {
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+            padding: 20px 24px;
+            color: white;
+        }
+        .modal-header h2 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+        .modal-header p {
+            font-size: 13px;
+            opacity: 0.9;
+        }
+        
+        .modal-body { padding: 24px; }
+        
+        .objection-detected {
+            background: #fff3e0;
+            border: 2px solid #ff9800;
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 20px;
+        }
+        .objection-label {
+            font-size: 11px;
+            color: #e65100;
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+        .objection-text {
+            font-size: 15px;
+            color: #333;
+            font-style: italic;
+        }
+        
+        .responses-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #666;
+            margin-bottom: 15px;
+        }
+        
+        .response-card {
+            border: 1px solid #e0e0e0;
+            border-radius: 12px;
+            padding: 18px;
+            margin-bottom: 15px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .response-card:hover {
+            border-color: #9c27b0;
+            box-shadow: 0 4px 12px rgba(156, 39, 176, 0.15);
+        }
+        .response-card.selected {
+            border-color: #9c27b0;
+            background: #faf5fc;
+        }
+        
+        .response-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+        .response-type {
+            font-size: 12px;
+            font-weight: 600;
+            padding: 4px 10px;
+            border-radius: 6px;
+        }
+        .type-value { background: #e8f5e9; color: #2e7d32; }
+        .type-compare { background: #e3f2fd; color: #1565c0; }
+        .type-social { background: #f3e5f5; color: #7b1fa2; }
+        
+        .response-effectiveness {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 12px;
+            color: #888;
+        }
+        .effectiveness-bar {
+            width: 60px;
+            height: 6px;
+            background: #e0e0e0;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+        .effectiveness-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #4caf50, #8bc34a);
+            border-radius: 3px;
+        }
+        
+        .response-text {
+            font-size: 14px;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        .response-hint {
+            margin-top: 12px;
+            padding: 10px 12px;
+            background: #f5f5f5;
+            border-radius: 8px;
+            font-size: 12px;
+            color: #666;
+        }
+        .response-hint strong { color: #9c27b0; }
+        
+        .modal-footer {
+            padding: 16px 24px;
+            background: #fafafa;
+            border-top: 1px solid #e0e0e0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .btn-primary {
+            background: #9c27b0;
+            color: white;
+        }
+        .btn-primary:hover { background: #7b1fa2; }
+        .btn-secondary {
+            background: #f0f0f0;
+            color: #666;
+        }
+        
+        .tip {
+            font-size: 12px;
+            color: #888;
+        }
+        .tip strong { color: #333; }
+        
+        .screenshot-label {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(0,0,0,0.8);
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="modal">
+    <div class="modal-header">
+        <h2>⚠️ Обработка возражения</h2>
+        <p>AI подготовил варианты ответа на основе лучших практик</p>
+    </div>
+    
+    <div class="modal-body">
+        <div class="objection-detected">
+            <div class="objection-label">Возражение клиента</div>
+            <div class="objection-text">"Цена высоковата. У конкурентов видел дешевле."</div>
+        </div>
+        
+        <div class="responses-title">Выберите стратегию ответа:</div>
+        
+        <div class="response-card selected">
+            <div class="response-header">
+                <span class="response-type type-value">💎 Ценность</span>
+                <div class="response-effectiveness">
+                    <span>Эффективность:</span>
+                    <div class="effectiveness-bar">
+                        <div class="effectiveness-fill" style="width: 87%;"></div>
+                    </div>
+                    <span>87%</span>
+                </div>
+            </div>
+            <div class="response-text">
+                Иван, понимаю вас! Давайте разберём, что вы получаете за эту сумму: помимо самого внедрения — 3 месяца бесплатной поддержки, обучение команды и интеграцию с вашими системами. По факту, это экономит вам ~150 000 ₽ на отдельных услугах. Какой из этих пунктов для вас важнее всего?
+            </div>
+            <div class="response-hint">
+                💡 <strong>Совет:</strong> Переводим разговор от цены к ценности и задаём открытый вопрос
+            </div>
+        </div>
+        
+        <div class="response-card">
+            <div class="response-header">
+                <span class="response-type type-compare">📊 Сравнение</span>
+                <div class="response-effectiveness">
+                    <span>Эффективность:</span>
+                    <div class="effectiveness-bar">
+                        <div class="effectiveness-fill" style="width: 72%;"></div>
+                    </div>
+                    <span>72%</span>
+                </div>
+            </div>
+            <div class="response-text">
+                Интересно, а что именно предлагают конкуренты за меньшую сумму? Часто в "дешёвых" предложениях не включены критичные вещи: миграция данных, настройка воронки под ваш бизнес, техподдержка. Можете скинуть их КП? Сделаю честное сравнение.
+            </div>
+        </div>
+        
+        <div class="response-card">
+            <div class="response-header">
+                <span class="response-type type-social">🏆 Соц. доказательство</span>
+                <div class="response-effectiveness">
+                    <span>Эффективность:</span>
+                    <div class="effectiveness-bar">
+                        <div class="effectiveness-fill" style="width: 68%;"></div>
+                    </div>
+                    <span>68%</span>
+                </div>
+            </div>
+            <div class="response-text">
+                Иван, понимаю сомнения — мы не самые дешёвые на рынке. При этом 94% клиентов продлевают с нами контракт. Недавно внедряли CRM в "ТехноПром" — похожий масштаб. Могу организовать короткий созвон с их директором, если хотите услышать отзыв из первых уст.
+            </div>
+        </div>
+    </div>
+    
+    <div class="modal-footer">
+        <span class="tip">⌨️ <strong>Enter</strong> — отправить выбранный ответ</span>
+        <div>
+            <button class="btn btn-secondary" style="margin-right: 10px;">Отмена</button>
+            <button class="btn btn-primary">Использовать ответ</button>
+        </div>
+    </div>
+</div>
+
+<div class="screenshot-label">saleswhisper.pro — Обработка возражений</div>
+
+</body>
+</html>

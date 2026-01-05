@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Оплата успешна - Sales Whisper</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+        }
+        .container {
+            text-align: center;
+            padding: 40px;
+        }
+        .success-icon {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, #11998e, #38ef7d);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px;
+            font-size: 50px;
+        }
+        h1 {
+            font-size: 36px;
+            margin-bottom: 15px;
+        }
+        p {
+            color: #a0a0a0;
+            font-size: 18px;
+            margin-bottom: 30px;
+            max-width: 500px;
+        }
+        .info-box {
+            background: rgba(255,255,255,0.05);
+            border-radius: 12px;
+            padding: 25px;
+            margin: 30px 0;
+            text-align: left;
+            max-width: 450px;
+            margin: 30px auto;
+        }
+        .info-box h3 {
+            margin-bottom: 15px;
+            color: #667eea;
+        }
+        .info-box ol {
+            padding-left: 20px;
+        }
+        .info-box li {
+            margin-bottom: 10px;
+            color: #ccc;
+        }
+        .btn {
+            display: inline-block;
+            padding: 15px 40px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: 600;
+            margin: 10px;
+        }
+        .btn-secondary {
+            background: rgba(255,255,255,0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="success-icon">✓</div>
+        <h1>Оплата прошла успешно!</h1>
+        <p>Лицензионный ключ отправлен на вашу почту и в Telegram (если указали)</p>
+        
+        <div class="info-box">
+            <h3>Что дальше?</h3>
+            <ol>
+                <li>Откройте amoCRM</li>
+                <li>Перейдите в Настройки → Интеграции</li>
+                <li>Найдите Sales Whisper Suite</li>
+                <li>Введите лицензионный ключ из письма</li>
+                <li>Готово! Виджет активирован</li>
+            </ol>
+        </div>
+        
+        <a href="https://saleswhisper.pro" class="btn">На главную</a>
+        <a href="https://saleswhisper.pro/support.html" class="btn btn-secondary">Поддержка</a>
+    </div>
+</body>
+</html>

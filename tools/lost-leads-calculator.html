@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Калькулятор потерь от упущенных лидов | Sales Whisper</title>
+    <meta name="description" content="Рассчитайте, сколько денег вы теряете из-за медленных ответов на заявки. Бесплатный калькулятор упущенной выгоды.">
+
+    <link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header__inner">
+                <a href="../" class="header__logo">AI <span>Seller</span> Bot</a>
+
+                <nav class="header__nav">
+                    <ul>
+                        <li><a href="../#features">Возможности</a></li>
+                        <li><a href="../#pricing">Тарифы</a></li>
+                        <li><a href="../#cases">Кейсы</a></li>
+                        <li><a href="../blog/">Блог</a></li>
+                        <li><a href="../#contact">Заявка</a></li>
+                    </ul>
+                </nav>
+
+                <button class="menu-toggle" aria-label="Меню">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+
+        <nav class="mobile-menu">
+            <ul>
+                <li><a href="../#features">Возможности</a></li>
+                <li><a href="../#pricing">Тарифы</a></li>
+                <li><a href="../#cases">Кейсы</a></li>
+                <li><a href="../blog/">Блог</a></li>
+                <li><a href="../#contact">Заявка</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="calculator-page">
+            <div class="container">
+                <div class="section-header">
+                    <h1>Калькулятор потерь от упущенных лидов</h1>
+                    <p>Узнайте, сколько денег вы теряете из-за медленных ответов на заявки</p>
+                </div>
+
+                <div class="calculator">
+                    <form id="calculator-form">
+                        <div class="form-group">
+                            <label for="leads-per-day">Заявок в день</label>
+                            <input type="number" id="leads-per-day" name="leads-per-day" placeholder="Например: 10" min="1" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="avg-check">Средний чек, ₽</label>
+                            <input type="number" id="avg-check" name="avg-check" placeholder="Например: 50000" min="1" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="lost-percent">
+                                Процент потерянных/опоздавших заявок: <strong id="lost-percent-value">25%</strong>
+                            </label>
+                            <input type="range" id="lost-percent" name="lost-percent" min="5" max="60" value="25" step="5">
+                            <p class="text-muted" style="margin-top: 8px;">
+                                При ответе &gt;1 часа: 20-30%, &gt;4 часов: 40-50%, на следующий день: 60%+
+                            </p>
+                        </div>
+
+                        <button type="submit" class="btn btn--primary btn--large" style="width: 100%;">
+                            Посчитать потери
+                        </button>
+                    </form>
+
+                    <div class="calculator__result">
+                        <p class="calculator__result-label">Вы теряете в месяц:</p>
+                        <p class="calculator__result-value">0 ₽</p>
+                        <p class="calculator__result-note">
+                            Это упущенная выгода от заявок, которые не дождались ответа
+                        </p>
+                        <a href="../#contact" class="btn btn--primary" style="margin-top: 24px;">
+                            Поставить ИИ-бота и перестать терять эти деньги
+                        </a>
+                    </div>
+                </div>
+
+                <div style="max-width: 600px; margin: 48px auto 0; text-align: center;">
+                    <h3 style="margin-bottom: 16px;">Как считается?</h3>
+                    <p class="text-muted">
+                        Формула: <strong>Заявки × 30 дней × Средний чек × Процент потерь</strong><br>
+                        Это упрощённая оценка, которая показывает порядок цифр. В реальности на конверсию влияет множество факторов.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__content">
+                <div class="footer__about">
+                    <div class="footer__logo">Sales <span>Whisper</span></div>
+                    <p class="footer__desc">ИИ-продавец, который не даёт заявкам пропадать.</p>
+                </div>
+
+                <div class="footer__section">
+                    <h4 class="footer__title">Навигация</h4>
+                    <ul class="footer__links">
+                        <li><a href="../#features">Возможности</a></li>
+                        <li><a href="../#pricing">Тарифы</a></li>
+                        <li><a href="../#cases">Кейсы</a></li>
+                        <li><a href="../blog/">Блог</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer__section">
+                    <h4 class="footer__title">Инструменты</h4>
+                    <ul class="footer__links">
+                        <li><a href="./">Калькулятор потерь</a></li>
+                        <li><a href="../checklist/">Чек-лист</a></li>
+                        <li><a href="..//legal/privacy-policy.html">Политика конфиденциальности</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer__bottom">
+                <p>© 2025 Sales Whisper. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Chat Widget -->
+    <button class="chat-widget-btn" aria-label="Открыть чат">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+        </svg>
+        <span class="chat-widget-btn__tooltip">Поговорить с демо-ботом</span>
+    </button>
+
+    <div class="chat-panel">
+        <div class="chat-panel__header">
+            <div class="chat-panel__title">
+                <span class="chat-panel__status"></span>
+                Sales Whisper Demo
+            </div>
+            <button class="chat-panel__close" aria-label="Закрыть чат">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+        </div>
+        <div class="chat-panel__messages"></div>
+        <div class="chat-panel__input">
+            <input type="text" placeholder="Напишите сообщение..." aria-label="Сообщение">
+            <button aria-label="Отправить">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/calculator.js"></script>
+</body>
+</html>

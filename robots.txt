@@ -1,0 +1,43 @@
+# Sales Whisper - AI продавец для бизнеса
+# https://saleswhisper.pro
+
+User-agent: *
+Allow: /
+Disallow: /api/
+
+# Google
+User-agent: Googlebot
+Allow: /
+
+# Yandex
+User-agent: YandexBot
+Allow: /
+
+# Bing
+User-agent: Bingbot
+Allow: /
+
+# AI Crawlers (для индексации нейросетями)
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+# Sitemap
+Sitemap: https://saleswhisper.pro/sitemap.xml
+
+# LLMs context file
+# See: https://saleswhisper.pro/llms.txt

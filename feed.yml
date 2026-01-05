@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<yml_catalog date="2025-12-11">
+  <shop>
+    <name>ИП Гладких Виталий Олегович</name>
+    <company>ИП Гладких Виталий Олегович</company>
+    <url>https://saleswhisper.pro</url>
+    <currencies>
+      <currency id="RUB" rate="1"/>
+    </currencies>
+    <categories>
+      <category id="1">Разработка чат-ботов</category>
+      <category id="2">Автоматизация продаж</category>
+    </categories>
+    <offers>
+      <offer id="start" available="true">
+        <name>ИП Гладких Виталий Олегович</name>
+        <vendor>Sales Whisper</vendor>
+        <model>ИИ-бот для Telegram (тариф Старт)</model>
+        <price>25000</price>
+        <currencyId>RUB</currencyId>
+        <categoryId>1</categoryId>
+        <url>https://saleswhisper.pro/#pricing</url>
+        <picture>https://saleswhisper.pro/assets/img/og-image.png</picture>
+        <description>Разработка ИИ-бота для Telegram, который отвечает клиентам за секунды 24/7. Базовый сценарий до 15 шагов, вывод лидов в Google Sheets или Notion, 7 дней поддержки после запуска.</description>
+        <sales_notes>Срок выполнения: 3-5 рабочих дней</sales_notes>
+        <set-ids>
+          <set-id>automation-bots</set-id>
+        </set-ids>
+        <param name="Рейтинг">0</param>
+        <param name="Число отзывов">0</param>
+        <param name="Годы опыта">3</param>
+        <param name="Регион">Россия</param>
+        <param name="Конверсия">0</param>
+        <param name="Срок выполнения">3-5 дней</param>
+        <param name="Каналы">Telegram</param>
+        <param name="Интеграции">Google Sheets, Notion</param>
+      </offer>
+      <offer id="standard" available="true">
+        <name>ИП Гладких Виталий Олегович</name>
+        <vendor>Sales Whisper</vendor>
+        <model>ИИ-бот с интеграцией CRM (тариф Стандарт)</model>
+        <price>45000</price>
+        <currencyId>RUB</currencyId>
+        <categoryId>1</categoryId>
+        <url>https://saleswhisper.pro/#pricing</url>
+        <picture>https://saleswhisper.pro/assets/img/og-image.png</picture>
+        <description>Полный аудит воронки продаж, разработка ИИ-бота для автоматизации первичной коммуникации с клиентами. Интеграция с CRM (amoCRM, Битрикс24). 30 дней сопровождения.</description>
+        <sales_notes>Срок выполнения: 1-2 недели</sales_notes>
+        <set-ids>
+          <set-id>automation-bots</set-id>
+        </set-ids>
+        <param name="Рейтинг">0</param>
+        <param name="Число отзывов">0</param>
+        <param name="Годы опыта">3</param>
+        <param name="Регион">Россия</param>
+        <param name="Конверсия">0</param>
+        <param name="Срок выполнения">1-2 недели</param>
+        <param name="Каналы">Telegram, сайт</param>
+        <param name="Интеграции">amoCRM, Битрикс24, Google Sheets</param>
+      </offer>
+      <offer id="pro" available="true">
+        <name>ИП Гладких Виталий Олегович</name>
+        <vendor>Sales Whisper</vendor>
+        <model>Комплексная автоматизация продаж (тариф PRO)</model>
+        <price>90000</price>
+        <currencyId>RUB</currencyId>
+        <categoryId>2</categoryId>
+        <url>https://saleswhisper.pro/#pricing</url>
+        <picture>https://saleswhisper.pro/assets/img/og-image.png</picture>
+        <description>Несколько сценариев под разные продукты, A/B-тесты, аналитика и отчёты. Работа с отделом продаж. Мультиканальность: Telegram, WhatsApp, виджет на сайте.</description>
+        <sales_notes>Индивидуальный проект</sales_notes>
+        <set-ids>
+          <set-id>automation-bots</set-id>
+        </set-ids>
+        <param name="Рейтинг">0</param>
+        <param name="Число отзывов">0</param>
+        <param name="Годы опыта">3</param>
+        <param name="Регион">Россия</param>
+        <param name="Конверсия">0</param>
+        <param name="Срок выполнения">от 2 недель</param>
+        <param name="Каналы">Telegram, WhatsApp, сайт, Instagram</param>
+        <param name="Интеграции">Любые CRM, аналитика</param>
+      </offer>
+    </offers>
+  </shop>
+</yml_catalog>

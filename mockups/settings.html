@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Sales Whisper - Настройки виджета</title>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'PT Sans', Arial, sans-serif;
+            background: #f4f5f7;
+            min-height: 100vh;
+            padding: 30px;
+        }
+        
+        .settings-page {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        .logo {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, #9c27b0 0%, #7b1fa2 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+        }
+        .header h1 {
+            font-size: 24px;
+            color: #333;
+        }
+        .header h1 span { color: #9c27b0; }
+        
+        .card {
+            background: #fff;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+        
+        .card-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group:last-child { margin-bottom: 0; }
+        
+        .form-label {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 8px;
+        }
+        
+        .form-input {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 14px;
+            transition: border-color 0.2s;
+        }
+        .form-input:focus {
+            border-color: #9c27b0;
+            outline: none;
+        }
+        .form-input.valid {
+            border-color: #4caf50;
+            background: #f1f8e9;
+        }
+        
+        .form-hint {
+            font-size: 12px;
+            color: #888;
+            margin-top: 6px;
+        }
+        
+        .license-status {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px;
+            background: #e8f5e9;
+            border-radius: 8px;
+            margin-top: 12px;
+        }
+        .license-status.trial {
+            background: #fff3e0;
+        }
+        .status-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #4caf50;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+        }
+        .license-status.trial .status-icon {
+            background: #ff9800;
+        }
+        .status-text strong { display: block; color: #333; }
+        .status-text span { font-size: 13px; color: #666; }
+        
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px;
+            background: #fafafa;
+            border-radius: 8px;
+            margin-bottom: 12px;
+            cursor: pointer;
+        }
+        .checkbox-group:hover { background: #f5f5f5; }
+        
+        .checkbox {
+            width: 24px;
+            height: 24px;
+            border: 2px solid #9c27b0;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            background: #9c27b0;
+        }
+        .checkbox.unchecked {
+            background: white;
+            color: transparent;
+        }
+        
+        .checkbox-label strong { display: block; color: #333; font-size: 14px; }
+        .checkbox-label span { font-size: 12px; color: #888; }
+        
+        .time-inputs {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+        .time-inputs input {
+            width: 100px;
+            padding: 10px;
+            border: 2px solid #e0e0e0;
+            border-radius: 6px;
+            text-align: center;
+            font-size: 14px;
+        }
+        .time-inputs span { color: #888; }
+        
+        .btn-row {
+            display: flex;
+            justify-content: flex-end;
+            gap: 12px;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #f0f0f0;
+        }
+        
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        .btn-primary { background: #9c27b0; color: white; }
+        .btn-secondary { background: #f0f0f0; color: #666; }
+        
+        .upgrade-banner {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 12px;
+            padding: 24px;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .upgrade-text h3 { font-size: 18px; margin-bottom: 6px; }
+        .upgrade-text p { font-size: 14px; opacity: 0.9; }
+        .btn-upgrade {
+            background: white;
+            color: #7b1fa2;
+            padding: 12px 28px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 14px;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .screenshot-label {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(0,0,0,0.8);
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="settings-page">
+    <div class="header">
+        <div class="logo">🤖</div>
+        <h1>Настройки <span>Sales Whisper Suite</span></h1>
+    </div>
+    
+    <!-- License -->
+    <div class="card">
+        <h2 class="card-title">🔑 Лицензия</h2>
+        
+        <div class="form-group">
+            <label class="form-label">Лицензионный ключ</label>
+            <input type="text" class="form-input valid" value="SW-SUITE-7B2F-9K4M-X8P3" />
+            <p class="form-hint">Получить ключ: <a href="#" style="color: #9c27b0;">saleswhisper.pro/pricing</a></p>
+            
+            <div class="license-status">
+                <div class="status-icon">✓</div>
+                <div class="status-text">
+                    <strong>Лицензия активна — Suite</strong>
+                    <span>Действует до 15 февраля 2026</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Modules -->
+    <div class="card">
+        <h2 class="card-title">📦 Модули</h2>
+        
+        <div class="checkbox-group">
+            <div class="checkbox">✓</div>
+            <div class="checkbox-label">
+                <strong>AI Seller</strong>
+                <span>Генерация сообщений, обработка возражений, температура клиента</span>
+            </div>
+        </div>
+        
+        <div class="checkbox-group">
+            <div class="checkbox">✓</div>
+            <div class="checkbox-label">
+                <strong>Head of Sales</strong>
+                <span>Дашборд руководителя, аналитика команды, прогнозы</span>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Auto Response -->
+    <div class="card">
+        <h2 class="card-title">⚡ Автоматизация</h2>
+        
+        <div class="checkbox-group">
+            <div class="checkbox unchecked">✓</div>
+            <div class="checkbox-label">
+                <strong>Автоматические ответы</strong>
+                <span>AI будет автоматически отвечать клиентам в нерабочее время</span>
+            </div>
+        </div>
+        
+        <div class="form-group" style="margin-top: 20px;">
+            <label class="form-label">Рабочие часы</label>
+            <div class="time-inputs">
+                <input type="time" value="09:00" />
+                <span>—</span>
+                <input type="time" value="18:00" />
+            </div>
+            <p class="form-hint">Автоответы будут работать только вне этого времени</p>
+        </div>
+        
+        <div class="checkbox-group" style="margin-top: 15px;">
+            <div class="checkbox">✓</div>
+            <div class="checkbox-label">
+                <strong>Использовать в Digital Pipeline</strong>
+                <span>Автоматические действия при смене этапа сделки</span>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Save -->
+    <div class="card">
+        <div class="btn-row" style="border: none; padding-top: 0; margin-top: 0;">
+            <button class="btn btn-secondary">Отмена</button>
+            <button class="btn btn-primary">💾 Сохранить настройки</button>
+        </div>
+    </div>
+    
+    <!-- Upgrade Banner -->
+    <div class="upgrade-banner">
+        <div class="upgrade-text">
+            <h3>🚀 Хотите ещё больше возможностей?</h3>
+            <p>Подключите API для интеграции с вашими системами</p>
+        </div>
+        <button class="btn-upgrade">Узнать больше</button>
+    </div>
+</div>
+
+<div class="screenshot-label">saleswhisper.pro — Настройки виджета</div>
+
+</body>
+</html>

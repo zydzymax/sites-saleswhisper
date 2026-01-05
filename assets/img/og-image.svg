@@ -1,0 +1,58 @@
+<svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e"/>
+      <stop offset="100%" style="stop-color:#16213e"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#ff6b00"/>
+      <stop offset="100%" style="stop-color:#ff0080"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+
+  <!-- Decorative elements -->
+  <circle cx="100" cy="100" r="200" fill="#ff6b00" opacity="0.1"/>
+  <circle cx="1100" cy="530" r="250" fill="#ff0080" opacity="0.1"/>
+
+  <!-- Grid pattern -->
+  <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+    <path d="M 40 0 L 0 0 0 40" fill="none" stroke="white" stroke-width="0.5" opacity="0.05"/>
+  </pattern>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+
+  <!-- Logo icon -->
+  <g transform="translate(100, 250)">
+    <rect width="80" height="80" rx="16" fill="url(#accent)"/>
+    <path d="M25 40 L40 25 L55 40 L40 55 Z" fill="white"/>
+    <circle cx="40" cy="40" r="8" fill="white" opacity="0.5"/>
+  </g>
+
+  <!-- Title -->
+  <text x="200" y="275" font-family="Arial, sans-serif" font-size="64" font-weight="bold" fill="white">
+    Sales Whisper
+  </text>
+
+  <!-- Subtitle -->
+  <text x="200" y="330" font-family="Arial, sans-serif" font-size="32" fill="#a0a0a0">
+    ИИ-продавец для бизнеса
+  </text>
+
+  <!-- Description -->
+  <text x="100" y="430" font-family="Arial, sans-serif" font-size="24" fill="white">
+    Отвечает за секунды 24/7
+  </text>
+  <text x="100" y="470" font-family="Arial, sans-serif" font-size="24" fill="white">
+    Квалифицирует лидов и передаёт тёплых клиентов в CRM
+  </text>
+
+  <!-- URL -->
+  <text x="100" y="570" font-family="Arial, sans-serif" font-size="20" fill="url(#accent)">
+    saleswhisper.pro
+  </text>
+
+  <!-- Accent line -->
+  <rect x="100" y="380" width="400" height="4" rx="2" fill="url(#accent)"/>
+</svg>

@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sales Whisper - AI Seller Widget</title>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'PT Sans', Arial, sans-serif;
+            background: #f4f5f7;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 20px;
+        }
+        
+        /* AmoCRM Card Mockup */
+        .amocrm-card {
+            width: 100%;
+            max-width: 900px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            display: grid;
+            grid-template-columns: 1fr 350px;
+            overflow: hidden;
+        }
+        
+        .card-main {
+            padding: 25px;
+            border-right: 1px solid #e1e1e1;
+        }
+        
+        .card-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        
+        .deal-name { font-size: 22px; font-weight: 700; color: #333; }
+        .deal-price { font-size: 24px; font-weight: 700; color: #4caf50; }
+        
+        .deal-stage {
+            display: inline-block;
+            padding: 6px 14px;
+            background: #e3f2fd;
+            color: #1976d2;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+        
+        .deal-info { margin-bottom: 20px; }
+        .deal-info-row {
+            display: flex;
+            padding: 10px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .deal-info-label { width: 140px; color: #888; font-size: 13px; }
+        .deal-info-value { flex: 1; font-size: 13px; color: #333; }
+        
+        .chat-preview {
+            background: #fafafa;
+            border-radius: 8px;
+            padding: 15px;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+        .chat-message {
+            margin-bottom: 12px;
+            display: flex;
+        }
+        .chat-message.in { justify-content: flex-start; }
+        .chat-message.out { justify-content: flex-end; }
+        .chat-bubble {
+            max-width: 70%;
+            padding: 10px 14px;
+            border-radius: 16px;
+            font-size: 13px;
+            line-height: 1.4;
+        }
+        .chat-message.in .chat-bubble {
+            background: #fff;
+            border: 1px solid #e1e1e1;
+            border-bottom-left-radius: 4px;
+        }
+        .chat-message.out .chat-bubble {
+            background: #e1bee7;
+            border-bottom-right-radius: 4px;
+        }
+        .chat-time { font-size: 10px; color: #999; margin-top: 4px; }
+        
+        /* Widget Panel */
+        .widget-panel {
+            background: #fff;
+        }
+        
+        .widget-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 14px 18px;
+            background: linear-gradient(135deg, #9c27b0 0%, #7b1fa2 100%);
+            color: #fff;
+        }
+        .widget-header h3 { font-size: 15px; font-weight: 600; }
+        .widget-badge {
+            background: rgba(255,255,255,0.2);
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 11px;
+        }
+        
+        .client-bar {
+            display: flex;
+            align-items: center;
+            padding: 14px 18px;
+            background: #f8f9fa;
+            border-bottom: 1px solid #e1e1e1;
+        }
+        .client-avatar {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #e1bee7 0%, #ce93d8 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            font-weight: 700;
+            color: #7b1fa2;
+            margin-right: 12px;
+        }
+        .client-name { font-weight: 600; font-size: 14px; }
+        .client-company { font-size: 12px; color: #888; }
+        
+        .temperature {
+            margin-left: auto;
+            padding: 6px 12px;
+            border-radius: 14px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        .temperature.warm { background: #fff3e0; color: #ef6c00; }
+        .temperature.hot { background: #ffebee; color: #c62828; }
+        .temperature.cold { background: #e3f2fd; color: #1565c0; }
+        
+        .widget-section {
+            border-bottom: 1px solid #e1e1e1;
+        }
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 18px;
+            background: #fafafa;
+            cursor: pointer;
+        }
+        .section-header h4 {
+            font-size: 11px;
+            font-weight: 600;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .section-toggle { color: #999; font-size: 12px; }
+        
+        .section-content { padding: 18px; }
+        
+        .suggestion-card {
+            background: #fff;
+            border: 1px solid #e1e1e1;
+            border-radius: 10px;
+            padding: 14px;
+            margin-bottom: 12px;
+        }
+        .suggestion-card:last-child { margin-bottom: 0; }
+        
+        .suggestion-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        .suggestion-type {
+            font-size: 10px;
+            padding: 3px 8px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+        .suggestion-type.greeting { background: #e8f5e9; color: #2e7d32; }
+        .suggestion-type.follow_up { background: #e3f2fd; color: #1565c0; }
+        .suggestion-type.close { background: #f3e5f5; color: #7b1fa2; }
+        
+        .suggestion-text {
+            font-size: 13px;
+            line-height: 1.6;
+            color: #333;
+            padding: 12px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 3px solid #9c27b0;
+            margin-bottom: 12px;
+        }
+        
+        .suggestion-buttons {
+            display: flex;
+            gap: 8px;
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 8px 14px;
+            border: none;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        .btn-primary { background: #9c27b0; color: #fff; }
+        .btn-secondary { background: #f0f0f0; color: #666; }
+        .btn svg { margin-right: 6px; }
+        
+        .next-action {
+            padding: 14px 18px;
+            background: linear-gradient(135deg, #e1bee7 0%, #f3e5f5 100%);
+            border-left: 4px solid #9c27b0;
+        }
+        .next-action-label {
+            font-size: 10px;
+            color: #7b1fa2;
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+        .next-action-text { font-size: 14px; font-weight: 600; color: #333; }
+        
+        .objections-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .objection-tag {
+            display: inline-flex;
+            align-items: center;
+            padding: 8px 14px;
+            background: #fff3e0;
+            color: #ef6c00;
+            border-radius: 20px;
+            font-size: 12px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .objection-tag:hover { background: #ffe0b2; }
+        .objection-tag svg { margin-right: 6px; }
+        
+        .signals-list {
+            list-style: none;
+        }
+        .signal-item {
+            display: flex;
+            align-items: flex-start;
+            padding: 10px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .signal-item:last-child { border-bottom: none; }
+        .signal-icon {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: #e8f5e9;
+            color: #4caf50;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 12px;
+            font-size: 12px;
+        }
+        .signal-text { font-size: 13px; color: #333; line-height: 1.4; }
+        
+        /* Screenshot Label */
+        .screenshot-label {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(0,0,0,0.8);
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="amocrm-card">
+    <!-- Main Card Area -->
+    <div class="card-main">
+        <div class="card-header">
+            <span class="deal-name">Внедрение CRM для ООО "Альфа"</span>
+            <span class="deal-price">450 000 ₽</span>
+        </div>
+        
+        <div class="deal-stage">📋 Переговоры</div>
+        
+        <div class="deal-info">
+            <div class="deal-info-row">
+                <span class="deal-info-label">Контакт</span>
+                <span class="deal-info-value">Иван Петров</span>
+            </div>
+            <div class="deal-info-row">
+                <span class="deal-info-label">Компания</span>
+                <span class="deal-info-value">ООО "Альфа Технологии"</span>
+            </div>
+            <div class="deal-info-row">
+                <span class="deal-info-label">Телефон</span>
+                <span class="deal-info-value">+7 (999) 123-45-67</span>
+            </div>
+            <div class="deal-info-row">
+                <span class="deal-info-label">Email</span>
+                <span class="deal-info-value">ivan.petrov@alfa-tech.ru</span>
+            </div>
+        </div>
+        
+        <div class="chat-preview">
+            <div class="chat-message out">
+                <div class="chat-bubble">
+                    Добрый день, Иван! Подготовил для вас коммерческое предложение по внедрению CRM.
+                    <div class="chat-time">вчера, 14:23</div>
+                </div>
+            </div>
+            <div class="chat-message in">
+                <div class="chat-bubble">
+                    Спасибо! Посмотрел, но цена кажется высоковатой. У конкурентов видел дешевле.
+                    <div class="chat-time">вчера, 16:45</div>
+                </div>
+            </div>
+            <div class="chat-message out">
+                <div class="chat-bubble">
+                    Понимаю ваши сомнения. Давайте разберём, что входит в нашу цену и какую ценность вы получите.
+                    <div class="chat-time">вчера, 17:02</div>
+                </div>
+            </div>
+            <div class="chat-message in">
+                <div class="chat-bubble">
+                    Хорошо, расскажите подробнее. Особенно интересует поддержка после внедрения.
+                    <div class="chat-time">сегодня, 10:15</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Widget Panel -->
+    <div class="widget-panel">
+        <div class="widget-header">
+            <h3>🤖 AI-Ассистент</h3>
+            <span class="widget-badge">Пробный период</span>
+        </div>
+        
+        <div class="client-bar">
+            <div class="client-avatar">ИП</div>
+            <div>
+                <div class="client-name">Иван Петров</div>
+                <div class="client-company">Директор, Альфа Технологии</div>
+            </div>
+            <div class="temperature warm">🔥 Тёплый 68%</div>
+        </div>
+        
+        <div class="next-action">
+            <div class="next-action-label">Рекомендуемое действие</div>
+            <div class="next-action-text">Подробно рассказать о поддержке и кейсах</div>
+        </div>
+        
+        <div class="widget-section">
+            <div class="section-header">
+                <h4>💬 Варианты ответа</h4>
+                <span class="section-toggle">▼</span>
+            </div>
+            <div class="section-content">
+                <div class="suggestion-card">
+                    <div class="suggestion-header">
+                        <span class="suggestion-type follow_up">Follow-up</span>
+                    </div>
+                    <div class="suggestion-text">
+                        Иван, отличный вопрос! После внедрения вы получаете 3 месяца бесплатной поддержки: консультации, донастройка под ваши процессы, обучение новых сотрудников. Далее — 15 000 ₽/мес. Кстати, 80% клиентов продлевают поддержку, потому что экономят на штатном администраторе.
+                    </div>
+                    <div class="suggestion-buttons">
+                        <button class="btn btn-primary">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+                            Отправить
+                        </button>
+                        <button class="btn btn-secondary">✏️ Редактировать</button>
+                    </div>
+                </div>
+                
+                <div class="suggestion-card">
+                    <div class="suggestion-header">
+                        <span class="suggestion-type close">Закрытие</span>
+                    </div>
+                    <div class="suggestion-text">
+                        Иван, могу организовать демо-звонок с нашим клиентом из похожей отрасли — они расскажут про опыт работы с нами. Как вам такой вариант? Если устроит, готов забронировать слот на эту неделю.
+                    </div>
+                    <div class="suggestion-buttons">
+                        <button class="btn btn-primary">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+                            Отправить
+                        </button>
+                        <button class="btn btn-secondary">✏️ Редактировать</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="widget-section">
+            <div class="section-header">
+                <h4>⚠️ Возражения</h4>
+                <span class="section-toggle">▼</span>
+            </div>
+            <div class="section-content">
+                <div class="objections-list">
+                    <span class="objection-tag">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+                        Цена высокая
+                    </span>
+                    <span class="objection-tag">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+                        Есть конкуренты
+                    </span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="widget-section">
+            <div class="section-header">
+                <h4>✨ Сигналы покупки</h4>
+                <span class="section-toggle">▼</span>
+            </div>
+            <div class="section-content">
+                <ul class="signals-list">
+                    <li class="signal-item">
+                        <span class="signal-icon">✓</span>
+                        <span class="signal-text">Задаёт конкретные вопросы о поддержке</span>
+                    </li>
+                    <li class="signal-item">
+                        <span class="signal-icon">✓</span>
+                        <span class="signal-text">Быстро отвечает на сообщения (< 2 часов)</span>
+                    </li>
+                    <li class="signal-item">
+                        <span class="signal-icon">✓</span>
+                        <span class="signal-text">Изучил коммерческое предложение полностью</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="screenshot-label">saleswhisper.pro — AI Seller Widget</div>
+
+</body>
+</html>
